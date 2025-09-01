@@ -29,6 +29,7 @@ Measuments of a standard Panini's manga shelfs:
 </p>
 
 Total capacity of mangas per individual shelf: 140 volumes ~ 2 m (two sections of 70 each volume with an average width of 1.5 cm or 0.015 m = 1.05 ~ 1 m).
+
 Total capacity of mangas per whole manga's shelf: 560 volumes being a total of 8 m avaliable in one bookshelf.
 
 
