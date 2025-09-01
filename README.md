@@ -16,10 +16,11 @@ The present system allows to read a series of volume tomes, order them based on 
 
 Measurements of a standard Manga Volume:
 
+Mangas width ranges between 1 - 3 cm depending on the edition, editorial, and story, therefore the user will be able to enter the width of each volume to have a precise calculation.
+
 <p align="center">
 <img src="https://github.com/user-attachments/assets/0a6759d0-1346-4479-9f67-e26e9f300613" width="150" />
 </p>
-
 
 Measuments of a standard Panini's manga shelfs:
 
@@ -27,9 +28,8 @@ Measuments of a standard Panini's manga shelfs:
 <img src="https://github.com/user-attachments/assets/60753ea8-46de-4334-baf3-ebe1927f2c2d" width="300" />
 </p>
 
-
-Total capacity of mangas per individual shelf:
-Total capacity of mangas per whole manga's shelf:
+Total capacity of mangas per individual shelf: 140 volumes ~ 2 m (two sections of 70 each volume with an average width of 1.5 cm or 0.015 m = 1.05 ~ 1 m).
+Total capacity of mangas per whole manga's shelf: 560 volumes being a total of 8 m avaliable in one bookshelf.
 
 
 ### Personal interest
