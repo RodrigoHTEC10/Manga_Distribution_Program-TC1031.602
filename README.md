@@ -10,6 +10,7 @@ Manga specialized stores as Panini Points or Barnes & Noble receive a continous 
 </p>
 
 This problems and the desire to implement order can also occur to individual collectionist making difficult to know the location of specific stories and avaliable free space for more stories.
+<br>
 
 ### Objective
 The present system allows to read a series of manga volumes, order them based on different keys, add and eliminate volumes from the collection, and search for specific volumes location based in an infinite number of bookshelfs and its interior shelfs taking into account the standard measurements of a manga volume and the avaliable space in a traditional Panini's bookshelf. As an additional feature this program can store the information once ordered to keep track of the collection without losing the work done.
@@ -32,9 +33,10 @@ Total capacity of mangas per individual shelf: 140 volumes ~ 2 m (two sections o
 
 Total capacity of mangas per whole manga's shelf: 560 volumes being a total of 8 m avaliable in one bookshelf.
 
-
 ### Personal interest
 This system would allow not only to keep mangas in order in an specified place, but also search for them based on the data. As an amateur manga collector I am interested in keeping my volumes in order and in a specific place.
+
+<br>
 
 ## Competences
 
@@ -50,7 +52,7 @@ Based on the double loop usage, this algorith has a big O-Notation of (n^2) wher
 
 Even though this is one of the less efficient methods for sorting, the storage of the volumes in both vectors in the Object Collection: volumes (Vector<Volume>) and bookshelves (Vector<Bookshelf>) and the requirement for a continously updating space in each bookshelf's shelf is the reason this algorithm was implemented, which is explained in detail in the following competence.
 
-</p>
+<br>
 
 ### SICT0302 - Decision Making
 **Choose a proper sorting algorithm for the problem and use it correctly.**
@@ -66,13 +68,13 @@ During the sorting algorithm, the volumes vector is used. All physical locations
 
 As one volume at a time is found and put in the correct order in the Insertion Sort, its "physical" location would be updated, keeping a real account of the remaining space for the next volume. Being this the main reason why the Insertion Sort algorithm was chosen and implemented.
 
-</p>
+<br>
 
 ### SICT0303 - Action Implementation
 
 **-- Not avaliable during the present Submittion based on Calendar indications --**
 
-</p>
+<br>
 
 ## Program Distribution
 The following image shows the UML Class Diagram of the present project which shows the relationships between classes and their respective attributes and methods.
@@ -80,6 +82,8 @@ The following image shows the UML Class Diagram of the present project which sho
 <p align="center">
 <img src="https://github.com/user-attachments/assets/9cce40ec-35ec-4019-b1b6-e7e51d14b449" width="500" />
 </p>
+
+<br>
 
 ## Program Usage Indications
 The program is responsible for sorting based on an initial key the manga volumes stored initially in the text file "record.txt" which contains in this moment 36 mixed volumes of various collections from different authors. When starting the program with the main.cpp, the sorting will start automatically; all elements of the actual Main Menu and secondary Menus are avaliable and working. After using it, once the user press the 6th option: "6. Save and Exit" all the mangas of the program will be stored based on the last sort. 
@@ -96,7 +100,7 @@ Main Menu:
 
 For testing purposes if desired to keep the mangas mixed in the "record.txt" do not press option 6 of the Main Menu, as no changes will be saved, leaving the original file intact.
 
-</p>
+<br>
 
 ## Program Vulnerabilities
 After testing the program, the following vulnerability was identified:
