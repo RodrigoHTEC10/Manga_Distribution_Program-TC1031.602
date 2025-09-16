@@ -43,7 +43,7 @@ This system would allow not only to keep mangas in order in an specified place, 
 ### SICT0301 -  Problem Evaluation
 **Make a correct and complete complexity analysis of the sorting algorithms used on the program.**
 
-The sorting algorithm used for this program was the **Insertion Sort.**
+The sorting algorithm used for this program was the **Selection Sort.**
 
 This algorithm is iterative and uses two 'for loops': the outer loop goes from 0 to the size of the vector -1, while the inner loop goes from the inner loop counter i to the size of the vector -1.
 In the inner loop the manga volume with the first alphabetical order of the key (author or name) is located, otherwise the name of the manga (in case the key is the author) or the manga volume number are factors that determine wheter a volume goes before others. Once this volume is found, it is swapped with the volume at position i, unless this is the next volume in order. As the outer loop continues, the already sorted elements are not modified anymore.
@@ -57,7 +57,7 @@ Even though this is one of the less efficient methods for sorting, the storage o
 ### SICT0302 - Decision Making
 **Choose a proper sorting algorithm for the problem and use it correctly.**
 
-To explain the usage of the **Insertion Sort** as the sorting algorithm of the system, it is required to explain first the distribution of manga volumes.
+To explain the usage of the **Selection Sort** as the sorting algorithm of the system, it is required to explain first the distribution of manga volumes.
 
 Mangas in the program are stored in two places simultaneously:
 1. volumes: Vector<Volume> in a Collection object. This vector is used to be able to efficiently access and sort the manga volumes with less complexity that extracting all volumes from each shelf in all used bookshelves.
@@ -66,7 +66,7 @@ Mangas in the program are stored in two places simultaneously:
 
 During the sorting algorithm, the volumes vector is used. All physical locations and bookshelves are erased, and as each volume is found in its correct order (outer loop), the ideal space in the bookshelf is found and updated by the auxiliar method of the SortSearch class "checkSpace(Volume&, Volume&, vector<Bookshelf>&)". This is done in the order from A-Z alphabetically to be able to take into account the space already occupied by previous volumes, remaining space in each shelf and bookshelf, while keeping the order already established. 
 
-As one volume at a time is found and put in the correct order in the Insertion Sort, its "physical" location would be updated, keeping a real account of the remaining space for the next volume. Being this the main reason why the Insertion Sort algorithm was chosen and implemented.
+As one volume at a time is found and put in the correct order in the Selection Sort, its "physical" location would be updated, keeping a real account of the remaining space for the next volume. Being this the main reason why the Selection Sort algorithm was chosen and implemented.
 
 <br>
 
