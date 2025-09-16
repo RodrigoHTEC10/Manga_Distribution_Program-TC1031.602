@@ -169,7 +169,7 @@ void Sort::toString(vector<Volume>& volumes){
 //Public Functions Declaration
 
 /*
-Both of the following sorts used in this proyect are Insertion Sorts 
+Both of the following sorts used in this proyect are Selection Sorts 
 chosen based on the following reason:
 The order of the volumes in the collection is completely dependent only
 on its name, or author (depending the function) and its volume's number;
@@ -177,7 +177,7 @@ however, its location inside the created Bookshelfs is dependent on the
 fact that the previous volume was already placed in the bookshelf and it 
 is ocuppying space.
 
-Based on this fact, the insertion sort algorithm with complexity O(n^2) 
+Based on this fact, the selection sort algorithm with complexity O(n^2) 
 has been chosen as ordering in a way that the first elements of the 
 collection following alphabetical order are located and stored correctly,
 the next element will jump over the previous but still use it location.
