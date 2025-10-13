@@ -103,8 +103,4 @@ For testing purposes if desired to keep the mangas mixed in the "record.txt" do 
 <br>
 
 ## Program Vulnerabilities
-After testing the program, the following vulnerability was identified:
-
-In case of entering a different input type of the expected from the user (entering a word instead of a number) the program will begin looping itself, in which case it must be forced to stop by canceling the process in the console or IDE being used.
-
-As a precaution measure, the instructions that guide the user through the program usage state more clearly the data types required to enter
+After implementing the function validateAnswerInteger() in the main.cpp to catch invalid inputs from the user, no more vulnerabilities have been identified.
