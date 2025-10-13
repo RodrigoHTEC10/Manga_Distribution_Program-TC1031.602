@@ -1,7 +1,7 @@
 /*
 Title: Volume.h
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: September 15th
+Date: October 12th
 Description: 
 The Volume Class is the pilar of the present project as this object holds
 the information of each volume. These manga Volumes will be sorted, 
@@ -32,8 +32,11 @@ private:
     int shelfIndex;
 
 public:
+    //Constructors
     Volume();
     Volume(string, int, string, float, bool);
+
+    //Public Functions
     void setLocation(int, int, int);
     vector<int> getLocation();
     string getName();
@@ -42,8 +45,6 @@ public:
     bool isFavorite();
     float getWidth();
     string getInfo();
-
-
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -177,7 +178,7 @@ a specific distribution and dimensions.
 */
 string Volume::getInfo(){
     string info = "";
-    info += "--------------------------------------------------\n   Title: "+name+"\n   Volume: "+to_string(volume);
+    info += "    --------------------------------------------------\n   Title: "+name+"\n   Volume: "+to_string(volume);
     info += "\n   Author: "+author+"\n   Status: ";
     if(favorite){
         info+= "Favorite\n";

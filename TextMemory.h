@@ -1,7 +1,7 @@
 /*
 Title: TextMemory.h
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: September 15th
+Date: October 10th
 Description: 
 The class TextMemory() is responsible for reading and saving data from
 the text file "record.txt" which stores the information of each manga 
@@ -75,7 +75,9 @@ Collection TextMemory::read(){
                 
                 /*
                 Example of storing volume line.
-                name#volume$author!width*bookshelf%shelf(index_shelf)favorites\n
+                name
+                volume$author
+                width*bookshelf%shelf(index_shelf)favorites\n
                 */
 
                 string name;
@@ -94,9 +96,9 @@ Collection TextMemory::read(){
                 int index;
                 bool favorite;
 
-                getline(record, name, '#');
+                getline(record, name);
                 getline(record, volumeString, '$');
-                getline(record, author, '!');
+                getline(record, author);
                 getline(record, widthString, '*');
                 getline(record, bookshelfString, '%');
                 getline(record, shelfString, '(');
@@ -164,7 +166,9 @@ void TextMemory::write(Collection collection_){
 
             /*Write the information of each volume of the collection.
             Example of storing volume line.
-            name#volume$author!width*bookshelf%shelf(index_shelf)favorites\n
+            name
+            volume$author
+            width*bookshelf%shelf(index_shelf)favorites\n
             */
             vector<int> location = volumes[i].getLocation();
             bool favorite = volumes[i].isFavorite();
@@ -174,7 +178,7 @@ void TextMemory::write(Collection collection_){
             else
                 favoriteText = "false";
 
-            record<<volumes[i].getName()+"#"+to_string(volumes[i].getVolume())+"$"+volumes[i].getAuthor()+"!"+to_string(volumes[i].getWidth())+"*"+to_string(location[0])+"%"+to_string(location[1])+"("+to_string(location[2])+")"+favoriteText+"\n";
+            record<<volumes[i].getName()+"\n"+to_string(volumes[i].getVolume())+"$"+volumes[i].getAuthor()+"\n"+to_string(volumes[i].getWidth())+"*"+to_string(location[0])+"%"+to_string(location[1])+"("+to_string(location[2])+")"+favoriteText+"\n";
         }
     }
     record.close();

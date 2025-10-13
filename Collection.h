@@ -1,7 +1,7 @@
 /*
 Title: Collection.h
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: September 15th
+Date: October 13th
 Description:
 The Class Collection is the center piece that connects classes 
 interactions between them and the main as it coordinates and stores all
@@ -17,6 +17,7 @@ volumes and bookshelfs.
 #include "Volume.h"
 #include "Bookshelf.h"
 #include "SortSearch.h"
+#include "Record.h"
 
 using namespace std;
 
@@ -37,6 +38,7 @@ private:
     float shelfLength;
     sorted sortType;
     Sort sorting;
+    Record modif;
 
     //Private Functions
     void emptyBookshelves();
@@ -55,7 +57,9 @@ public:
     vector <string> consultsShelf(int, int);
     vector<string> getCollectionBy(int);
     vector<int> searchForVolumes(string);
-    
+    vector <string> consultActions(string);
+    vector<int> modifActions();
+    string reverseAction(int);
     
 };
 
@@ -70,6 +74,9 @@ Collection::Collection(){
     bookshelfShelfs = 4;
     shelfLength = 100;
     sortType = name;
+    modif = Record();
+    Action action = Action("Creation of the Collection", modif.length()+1, "Creation", Volume(), "The system created the current collection.");
+    modif.add(action);
 }
 
 //---------------------------------------------------------------------
@@ -84,6 +91,9 @@ Collection::Collection(int bookshelfShelf_, float shelfLength_){
     bookshelfShelfs = bookshelfShelf_;
     shelfLength = shelfLength_;
     sortType = name;
+    modif = Record();
+    Action action = Action("Creation of the Collection", modif.length()+1, "Creation", Volume(), "The system created the current collection.");
+    modif.add(action);
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -190,10 +200,14 @@ void Collection::setSortType(string type){
     if(type == "author"){
         sorting.sortByAuthor(volumes, bookshelves);
         sortType = author;
+        Action action = Action("Sort Modification: By Author", modif.length()+1, "Sorting", Volume(), "The user sorted the collection by Author.");
+        modif.add(action);
     }
     else{
         sorting.sortByName(volumes, bookshelves);
         sortType = name;
+        Action action = Action("Sort Modification: By Name", modif.length()+1, "Sorting", Volume(), "The user sorted the collection by Name.");
+        modif.add(action);
     }
 }
 
@@ -223,6 +237,8 @@ oon which sorting type was the last) and return a sucess message.
 */
 string Collection::addVolume(Volume volume_){
     volumes.push_back(volume_);
+    Action action = Action("Addition of Volume:"+volume_.getName() , modif.length()+1, "Adding", volume_, "Addition of the new Volume: "+volume_.getName()+" - Volume: "+to_string(volume_.getVolume()));
+    modif.add(action);
     emptyBookshelves();
     if(sortType == author){
         sorting.sortByAuthor(volumes, bookshelves);
@@ -248,6 +264,9 @@ string Collection::eraseVolume(int index_){
 
     //Erase the volume from the bookshelf
     bookshelves[location[0]].eraseVolume(location[1], location[2]);
+
+    Action action = Action("Elimination of the Volume: "+volumes[index_].getName(), modif.length()+1, "Eliminating", volumes[index_] , "Elimination of the manga Volume: "+volumes[index_].getName()+"  - Volume: "+to_string(volumes[index_].getVolume()));
+    modif.add(action);
 
     //Erase the volume from the collection
     volumes.erase(volumes.begin()+index_);
@@ -308,5 +327,78 @@ to obtain the range of indexes of the chosen name volume.
 vector<int> Collection::searchForVolumes(string name){
     return sorting.searchVolumes(volumes, name);
 };
+
+//---------------------------------------------------------------------
+/*
+vector<string> consultActions(string type)
+
+Function responsible for returning a vector<string> that holds the
+information of the Action objects contained in the Record linked list
+that might be either all the Actions of all the elements in the list 
+or only those who are modifiable depending on the parameter [type].
+*/
+
+vector<string> Collection::consultActions(string type){
+    if(type == "normal"){
+        return modif.toString();
+    }
+    else{
+        return modif.getModifiable();
+    }  
+};
+
+//---------------------------------------------------------------------
+/*
+vector<int> modifActions()
+
+Function responsible for returning a vector of all the ids of the Actions
+that are modifiable based on the filters established on the Record 
+function getModifiableInt().
+*/
+
+vector<int> Collection::modifActions(){
+    return modif.getModifiableInt();  
+};
+
+//---------------------------------------------------------------------
+/*
+string reverseAction(int id)
+
+Function responsible for reversing a specific action taken by the user 
+whose algoritm depends on its type:
+- Adding: 
+    Obtains the index of the specific volume added to the collection 
+    which has been stored in the Action object.
+    Eliminates the volume from the volumes vector and its location
+    in the bookshelfs.
+
+- Eliminating:
+    Adds the volume stored in the Action object into the collection.
+
+Once the actions have been performed, a new Action is added to the Record
+linked list, the reversed actions status is changed (making them 
+unavailable to reverse again) and returns a string message that reflects
+the completion of the task.
+*/
+
+string Collection::reverseAction(int id){
+    
+    Action toReverse = modif.get(id);
+    modif.reverse(id);
+
+    //Reversing an Adding Action
+    if(toReverse.getType() == "Adding"){
+        int index = sorting.searchVolume(volumes, toReverse.getVolume());
+        eraseVolume(index);
+        return "Volume "+toReverse.getVolume().getName()+" has been eliminated from the collection.";
+    }
+    //Reversing an Eliminating Action
+    else if(toReverse.getType() == "Eliminating"){
+        addVolume(toReverse.getVolume());
+        return "Volume "+toReverse.getVolume().getName()+" has been added from the collection.";
+    }
+    return "";
+}
+
 
 #endif

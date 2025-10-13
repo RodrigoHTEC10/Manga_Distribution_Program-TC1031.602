@@ -1,7 +1,7 @@
 /*
 Title: main.cpp
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: September 15th
+Date: October 13th
 Description:
 The present file holds the start, use and user interactions of all the
 functions and objects previously created in the complementary classes.
@@ -18,13 +18,61 @@ using namespace std;
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //Auxiliar Functions
 
+//---------------------------------------------------------------------
+/*
+int validateAnswerInteger()
+
+Auxiliar function that helps to validate an input from the user that
+is expected to be an integer, if its not, then it returns -1.
+*/
+
+int validateAnswerInteger(){
+    string answer;
+    int number;
+
+    getline(cin, answer);
+
+    try{
+        number = stoi(answer);
+    }
+    catch(std::invalid_argument){
+        number = -1;
+    }
+    return number;
+}
+
+
+//---------------------------------------------------------------------
+/*
+int validateAnswerFloat()
+
+Auxiliar function that helps to validate an input from the user that
+is expected to be an float, if its not, then it returns -1.0.
+*/
+
+float validateAnswerFloat(){
+    string answer;
+    float number;
+
+    getline(cin, answer);
+
+    try{
+        number = stof(answer);
+    }
+    catch(std::invalid_argument){
+        number = -1;
+    }
+    return number;
+}
+
+//---------------------------------------------------------------------
 /*
 int mainMenu()
 
-Returns an integer that correspond to one of the Main Menu options
-chosen by the User.
-The decision is only accepted if it is within the avaliable
-options.
+Function responsible for returning an integer that correspond to one of
+the Main Menu options chosen by the User.
+The decision is only accepted if it is within the avaliable decision 
+range.
 */
 int mainMenu(){
     int decision;
@@ -35,11 +83,12 @@ int mainMenu(){
     cout<< "3. Erase a Manga Volume." <<endl;
     cout<< "4. Sort actual collection." <<endl;
     cout<< "5. Show collection." <<endl;
-    cout<< "6. Save and Exit" <<endl;
+    cout<< "6. Access collection actions record." <<endl;
+    cout<< "7. Save and Exit" <<endl;
     cout<< "Enter your option: ";
-    cin>>decision;
+    decision = validateAnswerInteger();
     cout<<""<<endl;
-    if(decision > 0 && decision <= 6)
+    if(decision > 0 && decision <= 7)
         return decision;
     return -1;
 };
@@ -48,9 +97,10 @@ int mainMenu(){
 /*
 int SortMenu()
 
-Returns an integer that correspond to one of the Sort Menu options
-chosen by the User.
-The decision is only accepted if it is within the avaliable options.
+Function responsible for returning an integer that correspond to one of
+the Sort Menu options chosen by the User.
+The decision is only accepted if it is within the avaliable decision 
+range.
 */
 int sortMenu(){
     int decision;
@@ -59,7 +109,7 @@ int sortMenu(){
     cout<< "2. Sort by Author." <<endl;
     cout<< "3. Back to Main Menu." <<endl;
     cout<< "Enter your option: ";
-    cin>>decision;
+    decision = validateAnswerInteger();
     cout<<""<<endl;
     if(decision > 0 && decision <= 3)
         return decision;
@@ -70,9 +120,10 @@ int sortMenu(){
 /*
 int showMenu()
 
-Returns an integer that correspond to one of the Show Menu options
-chosen by the User.
-The decision is only accepted if it is within the avaliable options.
+Function responsible for returning an integer that correspond to one 
+of the Show Menu options chosen by the User.
+The decision is only accepted if it is within the avaliable decision 
+range.
 */
 int showMenu(){
     int decision;
@@ -85,9 +136,32 @@ int showMenu(){
     cout<< "6. Show all collection favorites." <<endl;
     cout<< "7. Back to Main Menu." <<endl;
     cout<< "Enter your option: ";
-    cin>>decision;
+    decision = validateAnswerInteger();
     cout<<""<<endl;
     if(decision > 0 && decision <= 7)
+        return decision;
+    return -1;
+};
+
+//---------------------------------------------------------------------
+/*
+int recordMenu()
+
+Function responsible for returning an integer that correspond to one
+of the Record Menu options chosen by the User.
+The decision is only accepted if it is within the avaliable decision 
+range.
+*/
+int recordMenu(){
+    int decision;
+    cout<<""<<endl;
+    cout<< "1. Show actions record." <<endl;
+    cout<< "2. Modify an action. " <<endl;
+    cout<< "3. Back to Main Menu." <<endl;
+    cout<< "Enter your option: ";
+    decision = validateAnswerInteger();
+    cout<<""<<endl;
+    if(decision > 0 && decision <= 3)
         return decision;
     return -1;
 };
@@ -97,7 +171,8 @@ int showMenu(){
 void printCollection(vector<string> collection)
 
 Auxiliar function responsible for printing all the elements of the 
-vector of strings entered as a parameter.
+vector of strings entered as a parameter with a number that list
+them.
 */
 void printCollection(vector<string> collection){
     cout<<"Collection: " <<endl;
@@ -106,6 +181,23 @@ void printCollection(vector<string> collection){
     }
     cout<<""<<endl;
 }
+
+//---------------------------------------------------------------------
+/*
+void printCollectionAlone(vector<string> collection)
+
+Auxiliar function responsible for printing all the elements of the 
+vector of strings entered as a parameter without a number that list
+them.
+*/
+void printCollectionAlone(vector<string> collection){
+    cout<<"Collection: " <<endl;
+    for(int i = 0;  i<collection.size(); i++){
+        cout<<"    "<<collection[i]<<endl;
+    }
+    cout<<""<<endl;
+}
+
 
 //---------------------------------------------------------------------
 /*
@@ -119,8 +211,7 @@ int withinRange(int min, int max, string object){
     bool inRange = false;
     int decision;
     while (!inRange){                    
-        cin>>decision;
-        cout<<""<<endl;
+        decision = validateAnswerInteger();
         if(decision>=min && decision<=max){
             inRange = true;
             return decision;
@@ -184,6 +275,30 @@ int searchVolume(Collection collectionName){
     return chosenIndex;
 }
 
+
+//---------------------------------------------------------------------
+/*
+bool availableActionID(int num, Collection general)
+
+Function responsible for returning a boolean depending if the Action
+object whose ID matches with the parameter [id_] within the linked
+list of Actions Record inside the Collection [general].
+
+This function allows to know if the chosen id submitted by the user is
+in fact a modifiable action within the vector of modifiable ids.
+*/
+bool availableActionID(int id_, Collection general){
+    bool partOf = false;
+    vector<int> ids = general.modifActions();
+    for(int i = 0; i<ids.size(); i++){
+        if(ids[i] == id_){
+            partOf = true;
+        }
+    }
+    return partOf;
+}
+
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //Main Function
 
@@ -218,21 +333,31 @@ int main()
                 bool favorite;
 
                 cout<<"Please enter your volume's name: "<<endl;
-                cin.ignore();
                 getline(cin, name);
                                 
                 cout<<"Please enter your volume's number: "<<endl;
-                cin>>number;
+                number = validateAnswerInteger();
+                while(number == -1){
+                    cout<<"Please enter a valid volume's number: "<<endl;
+                    number = validateAnswerInteger();
+                }
 
                 cout<<"Please enter your volume's author: "<<endl;
-                cin.ignore();
                 getline(cin, author);
 
                 cout<<"Please enter your volume's width (cm): "<<endl;
-                cin>>width;
+                width = validateAnswerFloat();
+                while(width == -1.0){
+                    cout<<"Please enter a valid volume's width (cm): "<<endl;
+                    width = validateAnswerFloat();
+                }
 
                 cout<<"Is this volume a favorite?\n 1. Yes\n 2. No\n Enter your numeric answer: "<<endl;
-                cin>>decision;
+                decision = validateAnswerInteger();
+                while(decision == -1.0){
+                    cout<<"Please enter a valid answer: "<<endl;
+                    decision = validateAnswerInteger();
+                }
                 
                 if(decision == 1){
                     favorite = true;
@@ -355,8 +480,52 @@ int main()
             }break;
             
             /**********************************************************/
-            //6. Save and Exit
+            //6. Access collection actions record.
             case 6:{
+                switch (recordMenu())
+                {
+                    //1. Show actions record.
+                    case 1:{
+                        printCollectionAlone(general.consultActions("normal"));
+                    }break;
+
+                    //2. Modify an action.
+                    case 2:{
+                        /*Printing of all the modifiable actions that are either Adding or Eliminating and whose 
+                        status reversed equal false.*/
+                        cout<<"Only Addition and Elimination actions are avaliable to reverse / modify."<<endl;
+                        cout<<"Choose among the following: "<<endl;
+                        printCollectionAlone(general.consultActions(""));
+
+                        cout<<"     Please enter the ID of the action you desire to reverse: "<<endl;
+                        int decision = validateAnswerInteger();
+                        
+                        //Validation if the answer is an ID showed before or a different number.
+                        if(availableActionID(decision, general)){
+                            //Reversing the action and printing its final status.
+                            cout<<general.reverseAction(decision)<<endl;
+                        }
+                        else{
+                            cout<<"     Not avaliable ID.\n     Going back to Main Menu...\n"<<endl; 
+                        }
+
+                    }break;
+
+                    //3. Back to Main Menu.
+                    case 3:{
+                        cout<<"Going back to Main Menu..."<<endl; 
+                    }break;
+                    
+                    default:{
+                        cout<<"Not avaliable option.\nGoing back to Main Menu...\n"<<endl;      
+                    }break;
+                }
+                
+            }break;
+
+            /**********************************************************/
+            //7. Save and Exit
+            case 7:{
                 memoria.write(general);
                 cout<<"Data saved.\n Thank you for using the program."<<endl;
                 finish = true;

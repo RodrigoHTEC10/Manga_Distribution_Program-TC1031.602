@@ -1,7 +1,7 @@
 /*
 Title: SortSearch.h
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: September 15th
+Date: October 12th
 Description:
 The Class SortSearch is responsible for sorting by name and author all
 the volumes of the collection, as well as helping getting the range of
@@ -33,6 +33,8 @@ public:
     void sortByName(vector<Volume>&, vector<Bookshelf>&);
     void sortByAuthor(vector<Volume>&, vector<Bookshelf>&);
     vector<int> searchVolumes(vector<Volume>&, string);
+    int searchVolume(vector<Volume>&, Volume);
+
 
 };
 
@@ -315,5 +317,26 @@ vector<int> Sort::searchVolumes(vector<Volume>& volumes, string name){
     }
     return indexes;
 };
+
+//---------------------------------------------------------------------
+/*
+int searchVolume(vector<Volume>& volumes, Volume lookingFor)
+
+Method that returns the index of the Volume object [lookingFor] within
+the Volume vector [volumes]. 
+This method is used as a search mechanism of one existing element within
+the vector.
+*/
+
+int Sort::searchVolume(vector<Volume>& volumes, Volume lookingFor){
+    int index = -1;
+    for(int i = 0; i<volumes.size(); i++){
+        if((volumes[i].getName() == lookingFor.getName()) && (volumes[i].getVolume() == lookingFor.getVolume())){
+            index = i;
+        }
+    }
+    return index;
+}
+
 
 #endif
