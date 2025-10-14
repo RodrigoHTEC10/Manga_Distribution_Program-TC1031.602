@@ -131,11 +131,13 @@ By taking the previous actions, the data consulting is performed automatically a
 
 The class responsible for reading and saving the manga Volume's data from and to the text file "record.txt" is called TextMemory.h. Through the function read() it gets creates a new Collection object, obtains the information of each manga volume which is stored in the following format:
 
-        insertar formato
+        name
+        volume$author
+        width*bookshelf%shelf(index_shelf)favorites\n
 
-To finally create each Volume object before adding to the collection with the function addVolume() creating directly an Action object which is added to the Record linked list achieving succesfully the automatic load of data as long as the 'record.txt' is present.
+To finally create each Volume object before adding to the collection with the function addVolume() creating directly an Action object which is added to the Record linked list achieving succesfully the automatic load of data as long as the 'record.txt' is present. At the end, the function returns the created Collection which is the one over which we work.
 
-//////////////////////////// 
+On the other hand, the function write() writes the information of every manga Volume stored within the parameter Collection into the document "record.txt" in the previous shown format. This function is called once the work session with the program has finished, by pressing the option No. 7 on the Main Menu.
 
 <br>
 
