@@ -115,16 +115,27 @@ As one volume at a time is found and put in the correct order in the Selection S
 
 ### SICT0303 - Action Implementation
 
-**Implementa mecanismos para consultar información de las estructras correctos.**
+**Implements mechanisms of proper data consulting from the data structures**
 
-////////////////////////////////////
+The usage of the Record class (which is the Simple Linked List) is done completely through the use of the Collection class functions. 
+
+The Action objects that form the Record of actions are created inside the Collection functions of addVolume(), setSortType() and eraseVolume(), and inmediately added to the Record which is created at the declaration of the Collection object. In this way, the creation is automatic and based on user actions taken on the Main Menu.
+
+The only information that the User needs from the Record are its elements and modifiable elements, which are string vectors that show the information of either all the Actions of the Record, or only modifiable Actions which are "Adding" or "Eliminating" whose status "reversed" = false; these are obtained through functions from Collection which are equally obtained from the inner traversing of the Record elements through its functions. At no moment, the user moves freely through the structure as the linked list; but rather, the program obtains the required elements from it with very punctual functions. 
+
+By taking the previous actions, the data consulting is performed automatically and show to the User, which may or may not modify modifiable actions based on free will and appreciate its impact both on the Record of Actions as the Volumes Collection.
 
 <br>
 
-**Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.**
+**Implements file reading mechanisms to load data to data structures in a proper way**
 
+The class responsible for reading and saving the manga Volume's data from and to the text file "record.txt" is called TextMemory.h. Through the function read() it gets creates a new Collection object, obtains the information of each manga volume which is stored in the following format:
 
-/////////////////////////////////////
+        insertar formato
+
+To finally create each Volume object before adding to the collection with the function addVolume() creating directly an Action object which is added to the Record linked list achieving succesfully the automatic load of data as long as the 'record.txt' is present.
+
+//////////////////////////// 
 
 <br>
 
