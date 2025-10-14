@@ -56,9 +56,11 @@ Even though this is one of the less efficient methods for sorting, the storage o
 
 **Makes a correct and complete complexity analysis of all the data structures implemented and each of their use on the program.**
 
-The linear data structure applied on the current program was the **simple linked list**.
+The linear data structures applied on the current program were the **simple linked list** and **vectors** which are explained in each individual section:
 
-This particular data structure is formed out of elements linked to each other through a series of pointers that allow each chain ring to know the location of the next element. In this way, the only point to start traversing the list is knowing its start, the head pointer stored within the linked list [Record] class, to afterwards continue traveling through the chain until the last element's pointer goes to null.
+<br>
+
+A **Simple Linked List** data structure is formed out of elements linked to each other through a series of pointers that allow each chain ring to know the location of the next element. In this way, the only point to start traversing the list is knowing its start, the head pointer stored within the linked list [Record] class, to afterwards continue traveling through the chain until the last element's pointer goes to null.
 
 This structure allows to add an infinity of elements, eliminate elements in any place of the list, traverse relatively easily through it and allow a simple handling due to its internal functions that allow to find, test, and print all elements that form part of it.
 
@@ -68,9 +70,21 @@ On the other hand, due to the modification applyied at the add() function, a cha
 
 - Access and Seacrh time complexity equal O(n) as in the worst case scenario, where the whole list must be traversed in order to find the last element. However, as all elements in the implementation adopted are always added to the start of the linked list based on a priority for recent actions, the time might lower for the most recent actions in comparison to the oldest actions that will still keep a time complexity of O(n).
 
-- Insertion and delition have a time complexity of O(1) as it is extremely easy to add or eliminate elements by having a proper pointer control at the previous and following element.
+- Insertion and delition have a time complexity of O(1) as it is extremely easy to add or eliminate elements by having a proper pointer control at the previous and following elements of the list.
 
-Additionally, a brief analysis over the **vector** data structure is included as this structure is responsible for storing the principal object of the program Volumes.
+This data structure was specifically designed based on its application working as the storage of the actions taken by the User during the current work session until the program is either closed or saved; reason why the preference to store recent actions at the start of the list compared to the traditional linked list application where elements are added at the last section.
+
+<br>
+
+
+A **vector** is a data structure that changes a series of data between arrays of different sizes depending on the necessities of the storage at the moment (more or less space). Due to this factor, it has similarly, a space complexity of O(n) as n spaces in the memory are occupied for n elements. 
+
+Talking about its different time complexities:
+- Access time complexity is considerably low as O(1) thanks to the use of the indexes.
+- Adding and Eliminate elements from a vector  relies on the creation of a bigger or smaller array as needed, which is known as a relocation process, not achieving an exact time complexity of O(1) but getting close to it.
+- Search time complexity equals O(n) as traversing through all elements is tipically the standard procedure to find an element within it.
+
+Based on the previous standards we can appreciate how the simple linked list is more efficient thanks to the fact that the recolation process is avoided; however, vectors are easier to implement in multiple short sections of the program, therefore used in more classes, as they are used to get a series of returns, ease the sort processing, element finding, and storing.
 
 
 
