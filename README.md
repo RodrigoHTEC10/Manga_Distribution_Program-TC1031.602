@@ -54,6 +54,28 @@ Even though this is one of the less efficient methods for sorting, the storage o
 
 <br>
 
+**Makes a correct and complete complexity analysis of all the data structures implemented and each of their use on the program.**
+
+The linear data structure applied on the current program was the **simple linked list**.
+
+This particular data structure is formed out of elements linked to each other through a series of pointers that allow each chain ring to know the location of the next element. In this way, the only point to start traversing the list is knowing its start, the head pointer stored within the linked list [Record] class, to afterwards continue traveling through the chain until the last element's pointer goes to null.
+
+This structure allows to add an infinity of elements, eliminate elements in any place of the list, traverse relatively easily through it and allow a simple handling due to its internal functions that allow to find, test, and print all elements that form part of it.
+
+As all the linear data structures, its space complexity equals O(n) as n memory spaces are necessary to store exactly n elements, even though these do not need be next to each other thanks to the pointer traversing.
+
+On the other hand, due to the modification applyied at the add() function, a change on the traditional time complexity might be experienced in the following points:
+
+- Access and Seacrh time complexity equal O(n) as in the worst case scenario, where the whole list must be traversed in order to find the last element. However, as all elements in the implementation adopted are always added to the start of the linked list based on a priority for recent actions, the time might lower for the most recent actions in comparison to the oldest actions that will still keep a time complexity of O(n).
+
+- Insertion and delition have a time complexity of O(1) as it is extremely easy to add or eliminate elements by having a proper pointer control at the previous and following element.
+
+Additionally, a brief analysis over the **vector** data structure is included as this structure is responsible for storing the principal object of the program Volumes.
+
+
+
+<br>
+
 ### SICT0302 - Decision Making
 **Choose a proper sorting algorithm for the problem and use it correctly.**
 
@@ -70,9 +92,25 @@ As one volume at a time is found and put in the correct order in the Selection S
 
 <br>
 
+**Selecciona una estructura de datos adecuada al problema y lo usa correctamente.**
+
+//////////////////////////////////////////
+
+
+<br>
+
 ### SICT0303 - Action Implementation
 
-**-- Not avaliable during the present Submittion based on Calendar indications --**
+**Implementa mecanismos para consultar información de las estructras correctos.**
+
+////////////////////////////////////
+
+<br>
+
+**Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.**
+
+
+/////////////////////////////////////
 
 <br>
 
@@ -80,13 +118,15 @@ As one volume at a time is found and put in the correct order in the Selection S
 The following image shows the UML Class Diagram of the present project which shows the relationships between classes and their respective attributes and methods.
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/9cce40ec-35ec-4019-b1b6-e7e51d14b449" width="500" />
+<img src="https://github.com/user-attachments/assets/8de82952-26c9-4644-ba6b-41c308330a3e" width="800" />
 </p>
+
+
 
 <br>
 
 ## Program Usage Indications
-The program is responsible for sorting based on an initial key the manga volumes stored initially in the text file "record.txt" which contains in this moment 36 mixed volumes of various collections from different authors. When starting the program with the main.cpp, the sorting will start automatically; all elements of the actual Main Menu and secondary Menus are avaliable and working. After using it, once the user press the 6th option: "6. Save and Exit" all the mangas of the program will be stored based on the last sort. 
+The program is responsible for sorting based on an initial key the manga volumes stored initially in the text file "record.txt" which contains in this moment 35 mixed volumes of various collections from different authors. When starting the program with the main.cpp, the sorting will start automatically; all elements of the actual Main Menu and secondary Menus are avaliable and working. After using it, once the user press the 7th option: "7. Save and Exit" all the mangas of the program will be stored based on the last sort. 
 
 Main Menu:
 
@@ -95,7 +135,8 @@ Main Menu:
     3. Erase a Manga Volume.
     4. Sort actual collection.
     5. Show collection.
-    6. Save and Exit
+    6. Access collection actions record.
+    7. Save and Exit.
     Enter your option: 
 
 For testing purposes if desired to keep the mangas mixed in the "record.txt" do not press option 6 of the Main Menu, as no changes will be saved, leaving the original file intact.
