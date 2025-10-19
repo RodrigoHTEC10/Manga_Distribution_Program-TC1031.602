@@ -1,7 +1,7 @@
 /*
 Title: Collection.h
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: October 13th
+Date: October 18th
 Description:
 The Class Collection is the center piece that connects classes 
 interactions between them and the main as it coordinates and stores all
@@ -49,6 +49,7 @@ public:
     Collection(int, float);
     vector<Volume>& getVolumes();
     vector<Bookshelf>& getBookshelfs();
+    Record& getRecord();
     void setSortType(string);
     string addVolume(Volume);
     string eraseVolume(int);
@@ -185,6 +186,18 @@ Collection object.
 vector<Bookshelf>& Collection::getBookshelfs(){
     return bookshelves;
 };
+
+
+//---------------------------------------------------------------------
+/*
+Record& getRecord()
+
+Method that returns a reference to the Record object modif stored in
+the Collection object.
+*/
+Record& Collection::getRecord(){
+    return modif;
+}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //Setters
@@ -334,16 +347,23 @@ vector<string> consultActions(string type)
 
 Function responsible for returning a vector<string> that holds the
 information of the Action objects contained in the Record linked list
-that might be either all the Actions of all the elements in the list 
-or only those who are modifiable depending on the parameter [type].
+that might be either all the Actions of all the elements in the list
+or only those who are modifiable (in both normal and reverse order) 
+depending on the parameter [type].
 */
 
 vector<string> Collection::consultActions(string type){
     if(type == "normal"){
-        return modif.toString();
+        return modif.toString("normal");
+    }
+    else if(type == "reverse"){
+        return modif.toString("reverse");
+    }
+    else if(type == "normal_modif"){
+        return modif.getModifiable("normal");
     }
     else{
-        return modif.getModifiable();
+        return modif.getModifiable("reverse");
     }  
 };
 
@@ -376,15 +396,15 @@ whose algoritm depends on its type:
     Adds the volume stored in the Action object into the collection.
 
 Once the actions have been performed, a new Action is added to the Record
-linked list, the reversed actions status is changed (making them 
-unavailable to reverse again) and returns a string message that reflects
-the completion of the task.
+linked list, the reversed action is eliminated and the ids of the Record
+are modified to follow a straight count from old to recent Actions.
 */
 
 string Collection::reverseAction(int id){
     
     Action toReverse = modif.get(id);
-    modif.reverse(id);
+    modif.remove(id);
+    modif.correctId();
 
     //Reversing an Adding Action
     if(toReverse.getType() == "Adding"){

@@ -1,7 +1,7 @@
 /*
 Title: main.cpp
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: October 13th
+Date: October 18th
 Description:
 The present file holds the start, use and user interactions of all the
 functions and objects previously created in the complementary classes.
@@ -168,6 +168,28 @@ int recordMenu(){
 
 //---------------------------------------------------------------------
 /*
+int actionTempMenu()
+
+Function responsible for returning an integer that correspond to one
+of the Action Temporality Menu options chosen by the User.
+The decision is only accepted if it is within the avaliable decision 
+range.
+*/
+int actionTempMenu(){
+    int decision;
+    cout<<""<<endl;
+    cout<< "1. Recent Actions." <<endl;
+    cout<< "2. Old Actions. " <<endl;
+    cout<< "Enter your option: ";
+    decision = validateAnswerInteger();
+    cout<<""<<endl;
+    if(decision > 0 && decision <= 2)
+        return decision;
+    return -1;
+};
+
+//---------------------------------------------------------------------
+/*
 void printCollection(vector<string> collection)
 
 Auxiliar function responsible for printing all the elements of the 
@@ -218,7 +240,7 @@ int withinRange(int min, int max, string object){
         }
         else{
             cout<<"Enter a "<< object <<" number within the allowed range.\n Enter the "<<object<<" number:"<<endl;
-        }   
+        }
     }
     return decision;
 }
@@ -289,13 +311,24 @@ in fact a modifiable action within the vector of modifiable ids.
 */
 bool availableActionID(int id_, Collection general){
     bool partOf = false;
+    int size = general.getRecord().length();
     vector<int> ids = general.modifActions();
-    for(int i = 0; i<ids.size(); i++){
-        if(ids[i] == id_){
-            partOf = true;
+
+    if(id_ > (size/2)){
+        for(int i = 0; i<ids.size(); i++){
+            if(ids[i] == id_){
+                return true;
+            }
         }
     }
-    return partOf;
+    else{
+        for(int i = ids.size(); i>0; i--){
+            if(ids[i] == id_){
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 
@@ -486,23 +519,59 @@ int main()
                 {
                     //1. Show actions record.
                     case 1:{
-                        printCollectionAlone(general.consultActions("normal"));
+                        cout<<"Which Actions would you prefer to watch first: "<<endl;
+                        switch (actionTempMenu()){
+                            // 1. Recent Actions.
+                            case 1:{
+                                printCollectionAlone(general.consultActions("normal"));
+                            }break;
+
+                            // 2. Old Actions.
+                            case 2:{
+                                printCollectionAlone(general.consultActions("reverse"));
+                            }break;
+                            
+                            default:{
+                                cout<<"Not avaliable option.\nGoing back to Main Menu...\n"<<endl;     
+                            }break;
+                        }
                     }break;
 
                     //2. Modify an action.
                     case 2:{
-                        /*Printing of all the modifiable actions that are either Adding or Eliminating and whose 
-                        status reversed equal false.*/
+                        /*Printing of all the modifiable actions that are 
+                        either Adding or Eliminating and whose status 
+                        reversed equal false.*/
+
                         cout<<"Only Addition and Elimination actions are avaliable to reverse / modify."<<endl;
-                        cout<<"Choose among the following: "<<endl;
-                        printCollectionAlone(general.consultActions(""));
+                        cout<<"Which kind of Action would you prefer to modify: "<<endl;
+                        switch (actionTempMenu()){
+                            // 1. Recent Actions.
+                            case 1:{
+                                cout<<"Choose among the following: "<<endl;
+                                printCollectionAlone(general.consultActions("normal_modif"));
+                            }break;
+
+                            // 2. Old Actions.
+                            case 2:{
+                                cout<<"Choose among the following: "<<endl;
+                                printCollectionAlone(general.consultActions("reverse_modif"));
+                            }break;
+                            
+                            default:{
+                                cout<<"Not avaliable option.\nPrinting first option...\n"<<endl; 
+                                printCollectionAlone(general.consultActions("normal_modif"));    
+                            }break;
+                        }
 
                         cout<<"     Please enter the ID of the action you desire to reverse: "<<endl;
                         int decision = validateAnswerInteger();
                         
-                        //Validation if the answer is an ID showed before or a different number.
+                        /*Validation if the answer is an ID showed before
+                        or a different number.*/
                         if(availableActionID(decision, general)){
-                            //Reversing the action and printing its final status.
+                            /*Reversing the action and printing its final
+                            status.*/
                             cout<<general.reverseAction(decision)<<endl;
                         }
                         else{
@@ -520,7 +589,6 @@ int main()
                         cout<<"Not avaliable option.\nGoing back to Main Menu...\n"<<endl;      
                     }break;
                 }
-                
             }break;
 
             /**********************************************************/
