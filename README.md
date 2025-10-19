@@ -57,25 +57,27 @@ Even though this is one of the less efficient methods for sorting, the storage o
 
 ### **Makes a correct and complete complexity analysis of all the data structures implemented and each of their use on the program.**
 
-The linear data structures applied on the current program were the **simple linked list** and **vectors** which are explained in each individual section:
+The linear data structure applied on the current program was the **double linked list**.
 
 <br>
 
-A **Simple Linked List** data structure is formed out of elements linked to each other through a series of pointers that allow each chain ring to know the location of the next element. In this way, the only point to start traversing the list is knowing its start, the head pointer stored within the linked list [Record] class, to afterwards continue traveling through the chain until the last element's pointer goes to null.
+A **Double Linked List** data structure is formed out of elements linked to each other through a series of pointers that allow each chain ring to know the location of the next and previous element. In this way, the only points to start traversing the list are its start or finish, the head and tail pointer stored within the linked list [Record] class; either of which can be chosen based on closeness to the objective element.
 
-This structure allows to add an infinity of elements, eliminate elements in any place of the list, traverse relatively easily through it and allow a simple handling due to its internal functions that allow to find, test, and print all elements that form part of it.
+This structure allows to add an infinity of elements, eliminate elements in any place of the list (as long as the involved pointers are correctly connected), traverse relatively easily through it and allow a simple handling due to its internal functions that allow to find, test, and print all elements in both orders that form part of it.
 
 As all the linear data structures, its space complexity equals O(n) as n memory spaces are necessary to store exactly n elements, even though these do not need be next to each other thanks to the pointer traversing.
 
-On the other hand, due to the modification applyied at the add() function, a change on the traditional time complexity might be experienced in the following points:
+On the other hand, its time complexity is explained in the following points:
 
-- Access and Seacrh time complexity equal O(n) as in the worst case scenario the whole list must be traversed in order to find the last element. However, as all elements in the implementation adopted are always added to the start of the linked list based on a priority for recent actions, the time might lower for the most recent actions in comparison to the oldest actions that will still keep a time complexity of O(n).
+- Access and Search time complexity equal O(n/2) as both processed are based on the ID of the Actions stored, which are proportional to the length of the list, allowing to start the access or search processes from the closest end of the list, having a maximum time in the worst case escenario at the middle of the structure. Additionally, as all elements in the implementation adopted are always added to the start of the linked list based on a priority for recent actions, by the user knowing the number of actions taken in a determined time, a quickest way to find the element is chosen directly by the user but still checked by the algorithm by deciding to check Actions from Recent to Old or viceversa. 
 
-- Insertion and deletion have a time complexity of O(1) as it is extremely easy to add or eliminate elements by having a proper pointer control at the previous and following elements of the list.
+- Insertion and deletion have a time complexity of O(1) as it is relatively simple to add or eliminate elements by having a proper pointer control at the previous and following elements of the list, as well as the consideration of the head and tail pointers.
 
-This data structure was specifically designed based on its application: working as the storage of the actions taken by the User during the current work session, until the program is either closed or saved; reason why the preference to store recent actions at the start of the list compared to the traditional linked list application where elements are added at the last section.
+This data structure was specifically chosen based on its application: working as the storage of the actions taken by the User during the current work session, until the program is either closed or saved; reason why the preference to store recent actions at the start of the list compared to the traditional linked list application where elements are added at the last section. The usage of the double linked list compared to the simple linked list allows the user to obtain actions in the opposite order if required and lower time complexity to access and modify data based on its implementation. 
 
 <br>
+
+**Additional section:**
 
 A **vector** is a data structure that changes a series of data between arrays of different sizes depending on the necessities of the storage at the moment (more or less space). Due to this factor, it has similarly, a space complexity of O(n) as n spaces in the memory are occupied for n elements. 
 
@@ -84,8 +86,7 @@ Talking about its different time complexities:
 - Adding and Eliminate elements from a vector  relies on the creation of a bigger or smaller array as needed, which is known as a relocation process, not achieving an exact time complexity of O(1) but getting close to it.
 - Search time complexity equals O(n) as traversing through all elements is tipically the standard procedure to find an element within it.
 
-Based on the previous standards we can appreciate how the simple linked list is more efficient thanks to the fact that the recolation process is avoided; however, vectors are easier to implement in multiple short sections of the program, therefore used in more classes, as they are used to get a series of returns, ease the sort processing, element finding, and storing.
-
+Based on the previous standards we can appreciate how the double linked list is more efficient thanks to the fact that the recolation process is avoided; however, vectors are easier to implement in multiple short sections of the program, therefore used in more classes, as they are used to get a series of returns, ease the sort processing, element finding, and storing. Nonetheless, as this structure is not considered by the course as a linear data structure, its analysis is completely additional and has no effect over the overall grading.
 
 <br>
 
@@ -106,7 +107,7 @@ As one volume at a time is found and put in the correct order in the Selection S
 
 ### **Chooses an adequate data structure to solve the problem and use it correctly.**
 
-To explain the usage of the **simple linked list** it is necessary to understand its application as the Record of actions of the user.
+To explain the usage of the **double linked list** it is necessary to understand its application as the Record of actions of the user.
 
 The feature Record is an addition to the Manga Collection and Distribution program that stores the actions taken by the User during a working session divided into categories:
 
@@ -117,13 +118,15 @@ The feature Record is an addition to the Manga Collection and Distribution progr
 
 By keeping and storing these actions, the User is able to appreciate his/her progress through the working session, and overall be able to reverse actions taken by mistake. These are called as Modifiable Actions, and by being chosen / selected by the user, the program will automatically execute the opposite action based on the stored Volume information inside the Action object.
 
-Based on the previous behavior and user interaction, the simple linked list was chosen as the linear data structure applied to the present project due to the following characteristics:
+Based on the previous behavior and user interaction, the double linked list was chosen as the linear data structure applied to the present project due to the following characteristics:
 
 - The list allows to store an infinity of actions (not limited as an Array, to store as much actions as taken).
 - It does not require a second structure to keep the data when consulting (as it would be required if a Stack was used).
 - It allows to keep a specific order by adding every element to the start of the list (by having a specific order the User is able to know where to check the last actions performed easily).
 - Even though its not possible to traverse it from a foreign class, it is possible to obtain and consult information from it through the use of public functions or if needed, a ListIterator can be developed in a future.
 - It allows to modify and access the information stored within the structure independently of the element position in the chain.
+- Based on the order and structure, the user is able to obtain its actions from recent to old actions or viceversa, allowing for a more interactive reviewing process.
+- Reversed actions are eliminated from the List; by having a way to traverse the list from tail to head, a reorganization of the Action ID's is possible. 
 
 On the other hand, the implementation of the **vector** data structure was based mainly due to its easy application, access and element modification as these data structures are used within the previously explained sorting algorithm, storing of multiple data in different objects (as applied in Collection, Bookshelf or Shelf), and function returns for prints or comparison in the main.cpp file.
 
@@ -133,11 +136,11 @@ On the other hand, the implementation of the **vector** data structure was based
 
 ### **Implements mechanisms of proper data consulting from the data structures**
 
-The usage of the Record class (which is the Simple Linked List) is done completely through the use of the Collection class functions. 
+The usage of the Record class (which is a Double Linked List) is done completely through the use of the Collection class functions. 
 
 The Action objects that form the Record are created inside the Collection functions of addVolume(), setSortType() and eraseVolume(), and inmediately added to the Record which is created at the declaration of the Collection object. In this way, the creation is automatic and based on user actions taken on the Main Menu.
 
-The only information that the User needs from the Record are its elements and modifiable elements, which are string vectors that show the information of either all the Actions of the Record, or only modifiable Actions which are "Adding" or "Eliminating" whose status "reversed" equals false; these are obtained through functions from Collection which are equally obtained from the inner traversing of the Record elements through its functions. At no moment, the user moves freely through the linked list; but rather, the program obtains the required elements from it with punctual functions. 
+The only information that the User needs from the Record are its elements and modifiable elements, which are string vectors that show the information of either all the Actions of the Record, or only modifiable Actions which are "Adding" or "Eliminating" in the chosen order from Recent to Old, or viceversa; these are obtained through functions from Collection which are equally obtained from the inner traversing of the Record elements through its functions from head to tail, or viceversa depending on the user input. At no moment, the user moves freely through the linked list; but rather, the program obtains the required elements from it with punctual functions. 
 
 By taking the previous actions, the data consulting is performed automatically and show to the User, which may or may not modify actions based on free will and appreciate its impact both on the Record of Actions as the Volumes Collection.
 
@@ -151,7 +154,7 @@ The class responsible for reading and saving the manga Volume's data from and to
         volume$author
         width*bookshelf%shelf(index_shelf)favorites\n
 
-After getting the information, the algorithm creates each Volume object before adding it to the Collection with the function addVolume() directly creating an Action which is added to the Record linked list; achieving succesfully the automatic load of data as long as the 'record.txt' is present. At the end, returning the created Collection which is the main object used by the User.
+After getting the information, the algorithm creates each Volume object before adding it to the Collection with the function addVolume() directly creating an Action which is added to the Record double linked list; achieving succesfully the automatic load of data as long as the 'record.txt' is present. At the end, returning the created Collection which is the main object used by the User.
 
 On the other hand, the function write() writes the information of every manga Volume stored within the parameter Collection into the document "record.txt" in the previous shown format. This function is called once the work session with the program has finished, by pressing the option No. 7 on the Main Menu.
 
@@ -161,10 +164,8 @@ On the other hand, the function write() writes the information of every manga Vo
 The following image shows the UML Class Diagram of the present project which shows the relationships between classes and their respective attributes and methods.
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/8de82952-26c9-4644-ba6b-41c308330a3e" width="800" />
+<img src="https://github.com/user-attachments/assets/a5f29e9b-f56c-415c-a7be-be7bc5fd7ccf" width="800" />
 </p>
-
-
 
 <br>
 
