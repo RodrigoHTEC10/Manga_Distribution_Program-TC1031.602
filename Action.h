@@ -1,7 +1,7 @@
 /*
 Title: Action.h
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: October 12th
+Date: October 18th
 Description: 
 The Action class is responsible for creating the object that keeps
 record of the different actions taken by the user. Including the addition, 
@@ -27,7 +27,6 @@ private:
     string type;
     Volume storedVolume;
     string description;
-    bool reversed;
     time_t now;
 
 public:
@@ -39,9 +38,8 @@ public:
     string getType();
     Volume getVolume();
     int getID();
+    void setID(int);
     string toString();
-    bool hasBeenReversed();
-    void reverse();
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -52,7 +50,7 @@ Action()
 
 Default contructor of the Action object.
 */
-Action::Action(): name(""), id(-1), type(""), storedVolume(Volume()), description(""), reversed(false) {
+Action::Action(): name(""), id(-1), type(""), storedVolume(Volume()), description("") {
     time(&now);
 }
 
@@ -69,7 +67,6 @@ Action::Action(string name_, int id_, string type_, Volume vol_, string desc_){
     type = type_;
     storedVolume = vol_;
     description = desc_;
-    reversed = false;
     time(&now);
 }
 
@@ -109,24 +106,13 @@ int Action::getID(){
 
 //---------------------------------------------------------------------
 /*
-bool hasBeenReversed()
+void setID(int num)
 
-Method that returns a boolean corresponding to the status reversed of
-the Action object.
+Method that modifies the id of the Action as the parameter num_.
 */
-bool Action::hasBeenReversed(){
-    return reversed;
-};
-
-//---------------------------------------------------------------------
-/*
-void reverse()
-
-Method that turns the reverse status of an Action object to true.
-*/
-void Action::reverse(){
-    reversed = true;
-};
+void Action::setID(int num_){
+    id = num_;
+}
 
 
 //---------------------------------------------------------------------
