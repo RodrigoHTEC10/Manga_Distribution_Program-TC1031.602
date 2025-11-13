@@ -1,106 +1,435 @@
-INFO@35
+INFO@62
+Inicial loading of Volumes
+1$Initial
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+Initial loading of all stored Volumes.
+Tue Nov 11 00:22:54 2025
+Sort Modification: By Name
+2$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 00:22:54 2025
+Inicial loading of Volumes
+3$Initial
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+Initial loading of all stored Volumes.
+Tue Nov 11 00:23:10 2025
+Sort Modification: By Name
+4$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 00:23:10 2025
+Addition of Volume:Akatsuki No Yona
+5$Adding
 Akatsuki No Yona
 8$Mizuho Kasanagi
 3.500000*0%0(0)false
+Addition of the new Volume: Akatsuki No Yona - Volume: 8
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Alice in Borderland
+6$Adding
 Alice in Borderland
 5$Haro Aso
 1.500000*0%0(1)true
+Addition of the new Volume: Alice in Borderland - Volume: 5
+Tue Nov 11 13:00:25 2025
+Addition of Volume:De Yakuza a Amo de Casa
+7$Adding
 De Yakuza a Amo de Casa
 1$Kousuke Oono
 1.200000*0%0(2)false
+Addition of the new Volume: De Yakuza a Amo de Casa - Volume: 1
+Tue Nov 11 13:00:25 2025
+Addition of Volume:El Canto de la Noche
+8$Adding
 El Canto de la Noche
 5$Kotoyama
 17.000000*0%0(3)false
+Addition of the new Volume: El Canto de la Noche - Volume: 5
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Full Metal Alchemist
+9$Adding
 Full Metal Alchemist
 1$Hiromu Arakawa
 2.500000*0%0(4)true
+Addition of the new Volume: Full Metal Alchemist - Volume: 1
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Full Metal Alchemist
+10$Adding
 Full Metal Alchemist
 2$Hiromu Arakawa
 2.500000*0%0(5)false
+Addition of the new Volume: Full Metal Alchemist - Volume: 2
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Full Metal Alchemist
+11$Adding
 Full Metal Alchemist
 3$Hiromu Arakawa
 2.500000*0%0(6)false
+Addition of the new Volume: Full Metal Alchemist - Volume: 3
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Go Toubun no Hanayome
+12$Adding
 Go Toubun no Hanayome
 1$Haruto Mirawa
 1.700000*0%0(7)false
+Addition of the new Volume: Go Toubun no Hanayome - Volume: 1
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Go Toubun no Hanayome
+13$Adding
 Go Toubun no Hanayome
 2$Haruto Mirawa
 20.000000*0%0(8)false
+Addition of the new Volume: Go Toubun no Hanayome - Volume: 2
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Hara Hara Sensei
+14$Adding
 Hara Hara Sensei
 2$Yanage Takahuchi
 2.500000*0%0(9)false
+Addition of the new Volume: Hara Hara Sensei - Volume: 2
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Heart Program
+15$Adding
 Heart Program
 2$Hinata Nakamura
 15.000000*0%0(10)false
+Addition of the new Volume: Heart Program - Volume: 2
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Hellsing
+16$Adding
 Hellsing
 1$Kouta Hirano
 50.000000*0%1(0)false
+Addition of the new Volume: Hellsing - Volume: 1
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Hellsing
+17$Adding
 Hellsing
 2$Kouta Hirano
 50.000000*0%1(1)true
+Addition of the new Volume: Hellsing - Volume: 2
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Hellsing
+18$Adding
 Hellsing
 3$Kouta Hirano
 50.000000*0%2(0)true
+Addition of the new Volume: Hellsing - Volume: 3
+Tue Nov 11 13:00:25 2025
+Addition of Volume:High School of the Dead
+19$Adding
 High School of the Dead
 4$Varios
 7.000000*0%2(1)true
+Addition of the new Volume: High School of the Dead - Volume: 4
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Kamisama Kiss
+20$Adding
 Kamisama Kiss
 12$Julietta Suzuki
 1.000000*0%2(2)false
+Addition of the new Volume: Kamisama Kiss - Volume: 12
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Komi-san Can't Communicate
+21$Adding
 Komi-san Can't Communicate
 1$Tomohito Oda
 1.000000*0%2(3)true
+Addition of the new Volume: Komi-san Can't Communicate - Volume: 1
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Marriagetoxin
+22$Adding
 Marriagetoxin
 4$Joumyaku
 1.500000*0%2(4)false
+Addition of the new Volume: Marriagetoxin - Volume: 4
+Tue Nov 11 13:00:25 2025
+Addition of Volume:My Dress-Up Darling
+23$Adding
 My Dress-Up Darling
 2$Shinichi Fukuda
 22.000000*0%2(5)false
+Addition of the new Volume: My Dress-Up Darling - Volume: 2
+Tue Nov 11 13:00:25 2025
+Addition of Volume:My Dress-Up Darling
+24$Adding
 My Dress-Up Darling
 12$Shinichi Fukuda
 2.000000*0%2(6)false
+Addition of the new Volume: My Dress-Up Darling - Volume: 12
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Piece
+25$Adding
 One Piece
 1$Eiichiro Oda
 1.500000*0%2(7)true
+Addition of the new Volume: One Piece - Volume: 1
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Piece
+26$Adding
 One Piece
 3$Eiichiro Oda
 1.500000*0%2(8)false
+Addition of the new Volume: One Piece - Volume: 3
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Piece
+27$Adding
 One Piece
 3$Eiichiro Oda
 1.500000*0%2(9)false
+Addition of the new Volume: One Piece - Volume: 3
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Piece
+28$Adding
 One Piece
 4$Eiichiro Oda
 17.000000*0%3(0)false
+Addition of the new Volume: One Piece - Volume: 4
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Piece
+29$Adding
 One Piece
 5$Eiichiro Oda
 1.700000*0%3(1)false
+Addition of the new Volume: One Piece - Volume: 5
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Piece
+30$Adding
 One Piece
 10$Eiichiro Oda
 12.000000*0%3(2)true
+Addition of the new Volume: One Piece - Volume: 10
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Piece
+31$Adding
 One Piece
 11$Eiichiro Oda
 2.500000*0%3(3)true
+Addition of the new Volume: One Piece - Volume: 11
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Punch Man
+32$Adding
 One Punch Man
 1$One
 30.000000*0%3(4)true
+Addition of the new Volume: One Punch Man - Volume: 1
+Tue Nov 11 13:00:25 2025
+Addition of Volume:One Punch Man
+33$Adding
 One Punch Man
 4$One
 3.000000*0%3(5)false
+Addition of the new Volume: One Punch Man - Volume: 4
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Sakamoto Days
+34$Adding
 Sakamoto Days
 1$Yuto Suzuki
 15.000000*0%3(6)false
+Addition of the new Volume: Sakamoto Days - Volume: 1
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Sakamoto Days
+35$Adding
 Sakamoto Days
 2$Yuto Suzuki
 1.500000*0%3(7)false
+Addition of the new Volume: Sakamoto Days - Volume: 2
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Sakamoto Days
+36$Adding
 Sakamoto Days
 3$Yuto Suzuki
 1.500000*0%3(8)false
+Addition of the new Volume: Sakamoto Days - Volume: 3
+Tue Nov 11 13:00:25 2025
+Addition of Volume:She is beautiful
+37$Adding
 She is beautiful
 2$Jun Esaka
 14.000000*0%3(9)false
+Addition of the new Volume: She is beautiful - Volume: 2
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Shuumatsu no Valkarye
+38$Adding
 Shuumatsu no Valkarye
 6$Azychika
 10.000000*1%0(0)true
+Addition of the new Volume: Shuumatsu no Valkarye - Volume: 6
+Tue Nov 11 13:00:25 2025
+Addition of Volume:Zom 100
+39$Adding
 Zom 100
 12$Haro Aso
 1.500000*1%0(1)false
+Addition of the new Volume: Zom 100 - Volume: 12
+Tue Nov 11 13:00:25 2025
+Inicial loading of Volumes
+40$Initial
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+Initial loading of all stored Volumes.
+Tue Nov 11 13:00:25 2025
+Sort Modification: By Name
+41$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:00:25 2025
+Inicial loading of Volumes
+42$Initial
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+Initial loading of all stored Volumes.
+Tue Nov 11 13:09:44 2025
+Sort Modification: By Name
+43$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:09:44 2025
+Addition of Volume:Mi Bella Nico
+44$Adding
+Mi Bella Nico
+1$A. Nicole
+10.000000*0%0(0)true
+Addition of the new Volume: Mi Bella Nico - Volume: 1
+Tue Nov 11 13:10:26 2025
+Addition of Volume:Mi Bellisima Nico
+45$Adding
+Mi Bellisima Nico
+1$A. Nicole
+5.000000*0%0(0)true
+Addition of the new Volume: Mi Bellisima Nico - Volume: 1
+Tue Nov 11 13:11:23 2025
+Sort Modification: By Name
+46$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:15:56 2025
+Sort Modification: By Name
+47$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:16:57 2025
+Sort Modification: By Author
+48$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Author.
+Tue Nov 11 13:17:12 2025
+Sort Modification: By Name
+49$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:17:35 2025
+Elimination of the Volume: One Piece
+50$Eliminating
+One Piece
+11$Eiichiro Oda
+2.500000*0%3(3)true
+Elimination of the manga Volume: One Piece  - Volume: 11
+Tue Nov 11 13:22:38 2025
+Sort Modification: By Name
+51$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:22:38 2025
+Inicial loading of Volumes
+52$Initial
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+Initial loading of all stored Volumes.
+Tue Nov 11 13:23:43 2025
+Sort Modification: By Name
+53$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:23:43 2025
+Addition of Volume:Mi Bellisima Nico
+54$Adding
+Mi Bellisima Nico
+1$A. Nicole
+5.000000*0%2(6)true
+Addition of the new Volume: Mi Bellisima Nico - Volume: 1
+Tue Nov 11 13:24:13 2025
+Inicial loading of Volumes
+55$Initial
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+Initial loading of all stored Volumes.
+Tue Nov 11 13:24:23 2025
+Sort Modification: By Name
+56$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:24:23 2025
+Elimination of the Volume: Mi Bella Nico
+57$Eliminating
+Mi Bella Nico
+1$A. Nicole
+10.000000*0%2(5)true
+Elimination of the manga Volume: Mi Bella Nico  - Volume: 1
+Tue Nov 11 13:24:37 2025
+Sort Modification: By Name
+58$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:24:37 2025
+Elimination of the Volume: Mi Bellisima Nico
+59$Eliminating
+Mi Bellisima Nico
+1$A. Nicole
+5.000000*0%2(5)true
+Elimination of the manga Volume: Mi Bellisima Nico  - Volume: 1
+Tue Nov 11 13:24:44 2025
+Sort Modification: By Name
+60$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Tue Nov 11 13:24:44 2025
+Inicial loading of Volumes
+61$Initial
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+Initial loading of all stored Volumes.
+Wed Nov 12 00:16:12 2025
+Sort Modification: By Name
+62$Sorting
+Forgotten Volume
+0$Unknown
+0.000000*0%0(0)false
+The user sorted the collection by Name.
+Wed Nov 12 00:16:12 2025
