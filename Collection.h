@@ -1,7 +1,7 @@
 /*
 Title: Collection.h
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: October 18th
+Date: November 11th
 Description:
 The Class Collection is the center piece that connects classes 
 interactions between them and the main as it coordinates and stores all
@@ -16,7 +16,7 @@ volumes and bookshelfs.
 #include <vector>
 #include "Volume.h"
 #include "Bookshelf.h"
-#include "SortSearch.h"
+#include "Heap.h"
 #include "Record.h"
 
 using namespace std;
@@ -50,8 +50,10 @@ public:
     vector<Volume>& getVolumes();
     vector<Bookshelf>& getBookshelfs();
     Record& getRecord();
-    void setSortType(string);
+    void setSortType(string, bool);
     string addVolume(Volume);
+    void primitiveAddVolume(Volume);
+    void addAction(Action);
     string eraseVolume(int);
     vector <string> consultCollection();
     vector <string> consultBookshelf(int);
@@ -76,8 +78,6 @@ Collection::Collection(){
     shelfLength = 100;
     sortType = name;
     modif = Record();
-    Action action = Action("Creation of the Collection", modif.length()+1, "Creation", Volume(), "The system created the current collection.");
-    modif.add(action);
 }
 
 //---------------------------------------------------------------------
@@ -93,8 +93,6 @@ Collection::Collection(int bookshelfShelf_, float shelfLength_){
     shelfLength = shelfLength_;
     sortType = name;
     modif = Record();
-    Action action = Action("Creation of the Collection", modif.length()+1, "Creation", Volume(), "The system created the current collection.");
-    modif.add(action);
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -165,6 +163,7 @@ vector <string> Collection::getCollectionBy(int key){
     return collected_volumes;
 }
 
+
 //---------------------------------------------------------------------
 /*
 vector<Volume>& getVolumes()
@@ -175,6 +174,7 @@ object.
 vector<Volume>& Collection::getVolumes(){
     return volumes;
 };
+
 
 //---------------------------------------------------------------------
 /*
@@ -208,16 +208,20 @@ void setSortType(string type)
 Depending on the received string, the variable sortType will change 
 to either author or name.
 */
-void Collection::setSortType(string type){
+void Collection::setSortType(string type, bool initial){
     emptyBookshelves();
+    if(initial){
+        Action action = Action("Inicial loading of Volumes", modif.length()+1, "Initial", Volume(), "Initial loading of all stored Volumes.");
+        modif.add(action);
+    }
     if(type == "author"){
-        sorting.sortByAuthor(volumes, bookshelves);
+        sorting.sortBy(volumes, bookshelves, "author");
         sortType = author;
         Action action = Action("Sort Modification: By Author", modif.length()+1, "Sorting", Volume(), "The user sorted the collection by Author.");
         modif.add(action);
     }
     else{
-        sorting.sortByName(volumes, bookshelves);
+        sorting.sortBy(volumes, bookshelves, "name");
         sortType = name;
         Action action = Action("Sort Modification: By Name", modif.length()+1, "Sorting", Volume(), "The user sorted the collection by Name.");
         modif.add(action);
@@ -254,13 +258,39 @@ string Collection::addVolume(Volume volume_){
     modif.add(action);
     emptyBookshelves();
     if(sortType == author){
-        sorting.sortByAuthor(volumes, bookshelves);
+        sorting.sortBy(volumes, bookshelves, "author");
     }
     else{
-        sorting.sortByName(volumes, bookshelves);
+        sorting.sortBy(volumes, bookshelves, "name");
     }
     return "The Volume has been added successfully!";
 }
+
+//---------------------------------------------------------------------
+/*
+void primitiveAddVolume(Volume volume_)
+
+Method responsible for adding a new volume [volume_] to the volumes 
+vector of the Collection without sorting again all the volumes.
+*/
+
+void Collection::primitiveAddVolume(Volume volume_){
+    volumes.push_back(volume_);
+};
+
+
+//---------------------------------------------------------------------
+/*
+void addAction(Action)
+
+Method responsible for adding a new Action [action_] to the modif 
+Record of the Collection.
+*/
+
+void Collection::addAction(Action action_){
+    modif.add(action_);
+};
+
 
 //---------------------------------------------------------------------
 /*
@@ -285,7 +315,7 @@ string Collection::eraseVolume(int index_){
     volumes.erase(volumes.begin()+index_);
 
     //Re-order the remaining manga volumess
-    setSortType(to_string(sortType));
+    setSortType(to_string(sortType), false);
     return "The Volume has been erased successfully!";
 }
 
@@ -306,6 +336,7 @@ vector <string> Collection::consultCollection(){
     }
     return totalVolumes;
 };
+
 
 //---------------------------------------------------------------------
 /*
@@ -330,6 +361,7 @@ vector <string> Collection::consultsShelf(int index, int shelf){
     return bookshelves[index].getVolumes(shelf);
 }
 
+
 //---------------------------------------------------------------------
 /*
 vector<int> searchForVolumes(string name)
@@ -340,6 +372,7 @@ to obtain the range of indexes of the chosen name volume.
 vector<int> Collection::searchForVolumes(string name){
     return sorting.searchVolumes(volumes, name);
 };
+
 
 //---------------------------------------------------------------------
 /*
@@ -367,6 +400,7 @@ vector<string> Collection::consultActions(string type){
     }  
 };
 
+
 //---------------------------------------------------------------------
 /*
 vector<int> modifActions()
@@ -379,6 +413,7 @@ function getModifiableInt().
 vector<int> Collection::modifActions(){
     return modif.getModifiableInt();  
 };
+
 
 //---------------------------------------------------------------------
 /*

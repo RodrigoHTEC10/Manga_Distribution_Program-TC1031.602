@@ -423,13 +423,13 @@ int main()
                 switch(sortMenu()){
                     //1. Sort by Name.
                     case 1:{
-                        general.setSortType("name");
+                        general.setSortType("name", false);
                         cout<<"Collection has been sorted Alphabetically by Name."<<endl;
                     }break;
 
                     //2. Sort by Author
                     case 2:{
-                        general.setSortType("author");
+                        general.setSortType("author", false);
                         cout<<"Collection has been sorted Alphabetically by Author."<<endl;
                     }break;
 

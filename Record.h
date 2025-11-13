@@ -135,12 +135,6 @@ to be reversed is, the faster the linked list finds it, as it starts from
 recent to past. On the contrary, if the action was taken a long time ago,
 by being able to access the list from opposite order by starting a search
 or access from the tail, the time complexity is considerably low as well.
-
-Note: 
-If an action was taken in a different session, this can not be accessed 
-as each Record is created everytime the program is started. 
-In this way the stored information of eliminated manga Volumes is not 
-kept for the next session occuping memory space.
 */
 class Record{
     private:
@@ -164,6 +158,8 @@ class Record{
         Action get(int);
         int getFirst();
         void correctId();
+
+        friend class TextMemory;
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -330,7 +326,7 @@ void Record::remove(int id_){
 Action get(int id_)
 
 Function responsible for returning the Action object of the Element whose 
-Action's ID matches the parameter id_; otherwise, returining an empty
+Action's ID matches the parameter id_; otherwise, returning an empty
 Action object.
 */
 Action Record::get(int id_){

@@ -1,7 +1,7 @@
 /*
 Title: Action.h
 Author: Rodrigo Alejandro Hurtado Cortes 
-Date: October 18th
+Date: November 10th
 Description: 
 The Action class is responsible for creating the object that keeps
 record of the different actions taken by the user. Including the addition, 
@@ -27,15 +27,19 @@ private:
     string type;
     Volume storedVolume;
     string description;
-    time_t now;
+    string timeString;
 
 public:
     //Constructors
     Action();
     Action(string, int, string, Volume, string);
+    Action(string, int, string, Volume, string, string);
 
     //Public Functions
+    string getName();
     string getType();
+    string getDescription();
+    string getTime();
     Volume getVolume();
     int getID();
     void setID(int);
@@ -51,7 +55,10 @@ Action()
 Default contructor of the Action object.
 */
 Action::Action(): name(""), id(-1), type(""), storedVolume(Volume()), description("") {
+    time_t now;
     time(&now);
+    timeString = ctime(&now);
+    timeString.pop_back();
 }
 
 //---------------------------------------------------------------------
@@ -67,12 +74,45 @@ Action::Action(string name_, int id_, string type_, Volume vol_, string desc_){
     type = type_;
     storedVolume = vol_;
     description = desc_;
+    time_t now;
     time(&now);
-}
+    timeString = ctime(&now);
+    timeString.pop_back();
+};
+
+
+//---------------------------------------------------------------------
+/*
+Action(string name_, int id_, string type_, Volume vol_, string desc_)
+
+Constructor with parameters of the Action object that allows to add an
+action previous to the current work session.
+*/
+
+Action::Action(string name_, int id_, string type_, Volume vol_, string desc_, string time_){
+    name = name_;
+    id = id_;
+    type = type_;
+    storedVolume = vol_;
+    description = desc_;
+    timeString = time_;
+};
+
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //Getters
 
+/*
+string getName()
+
+Method that returns the name of the action taken by the user.
+*/
+string Action::getName(){
+    return name;
+};
+
+
+//---------------------------------------------------------------------
 /*
 string getType()
 
@@ -80,6 +120,28 @@ Method that returns the type of the action taken by the user.
 */
 string Action::getType(){
     return type;
+};
+
+
+//---------------------------------------------------------------------
+/*
+string getDescription()
+
+Method that returns the description of the action taken by the user.
+*/
+string Action::getDescription(){
+    return description;
+};
+
+
+//---------------------------------------------------------------------
+/*
+string getTime()
+
+Method that returns the time of the action taken by the user.
+*/
+string Action::getTime(){
+    return timeString;
 };
 
 //---------------------------------------------------------------------
@@ -128,8 +190,7 @@ string Action::toString(){
     text+= "    ID: "+to_string(id)+"\n";
     text+= "    Name: "+name+"\n";
     text+= "    Description: "+description+"\n";
-    string strTime = ctime(&now);
-    text+= "    Time: "+ strTime +"\n";
+    text+= "    Time: "+ timeString +"\n";
     return text;
 };
 

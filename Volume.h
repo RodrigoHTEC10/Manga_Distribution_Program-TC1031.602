@@ -67,6 +67,7 @@ Volume::Volume(){
     shelfIndex = 0;
 };
 
+
 //---------------------------------------------------------------------
 /*
 Volume(string name_, int volume_, string author_, float width_, 
@@ -87,6 +88,7 @@ Volume::Volume(string name_, int volume_, string author_, float width_, bool fav
     shelfIndex = 0;
 };
 
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //Setters
@@ -103,6 +105,7 @@ void Volume::setLocation(int bookshelf_, int shelf_, int shelfIndex_){
     shelfIndex = shelfIndex_;
 }
 
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //Getters
@@ -118,6 +121,7 @@ vector<int> Volume::getLocation(){
     return location;
 }
 
+
 //---------------------------------------------------------------------
 /*
 string getName()
@@ -127,6 +131,7 @@ Returns the name of the volume as a string.
 string Volume::getName(){
     return name; 
 };
+
 
 //---------------------------------------------------------------------
 /*
@@ -138,6 +143,7 @@ string Volume::getAuthor(){
     return author;
 };
 
+
 //---------------------------------------------------------------------
 /*
 int getVolume()
@@ -147,6 +153,7 @@ Returns the volume number of the volume as an integer.
 int Volume::getVolume(){
     return volume;
 };
+
 
 //---------------------------------------------------------------------
 /*
@@ -159,6 +166,7 @@ bool Volume::isFavorite(){
     return favorite;
 };
 
+
 //---------------------------------------------------------------------
 /*
 float getWidth()
@@ -168,6 +176,7 @@ Returns the width of the volume as a float.
 float Volume::getWidth(){
     return width;
 };
+
 
 //---------------------------------------------------------------------
 /*
